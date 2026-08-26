@@ -1,0 +1,105 @@
+### POST - Criar livro
+POST http://localhost:3000/api/livros
+Content-Type: application/json
+
+{
+  "titulo": "O Hobbit",
+  "autor": "J. R. R. Tolkien",
+  "status": "disponível",
+  "categoria": "fantasia"
+}
+
+### GET - Listar livros
+GET http://localhost:3000/api/livros
+
+### GET - Pesquisar livro
+GET http://localhost:3000/api/livros?search=Hobbit
+
+### PUT - Atualizar livro
+PUT http://localhost:3000/api/livros/1
+Content-Type: application/json
+
+{
+  "titulo": "O Hobbit Atualizado",
+  "autor": "J. R. R. Tolkien",
+  "status": "emprestado",
+  "categoria": "fantasia"
+}
+
+### PUT - Livro inexistente
+PUT http://localhost:3000/api/livros/9999
+Content-Type: application/json
+
+{
+  "titulo": "Livro Teste",
+  "autor": "Autor Teste",
+  "status": "disponível",
+  "categoria": "ficção"
+}
+
+### PUT - Título inválido
+PUT http://localhost:3000/api/livros/1
+Content-Type: application/json
+
+{
+  "titulo": "ABC",
+  "autor": "J. R. R. Tolkien",
+  "status": "disponível",
+  "categoria": "fantasia"
+}
+
+### PATCH - Alterar somente o status
+PATCH http://localhost:3000/api/livros/1
+Content-Type: application/json
+
+{
+  "status": "emprestado"
+}
+
+### PATCH - Alterar somente a categoria
+PATCH http://localhost:3000/api/livros/1
+Content-Type: application/json
+
+{
+  "categoria": "literatura"
+}
+
+### PATCH - Alterar título e autor
+PATCH http://localhost:3000/api/livros/1
+Content-Type: application/json
+
+{
+  "titulo": "Dom Casmurro",
+  "autor": "Machado de Assis"
+}
+
+### PATCH - Livro inexistente
+PATCH http://localhost:3000/api/livros/9999
+Content-Type: application/json
+
+{
+  "status": "emprestado"
+}
+
+### PATCH - Título inválido
+PATCH http://localhost:3000/api/livros/1
+Content-Type: application/json
+
+{
+  "titulo": "ABC"
+}
+
+### PATCH - Nenhum campo
+PATCH http://localhost:3000/api/livros/1
+Content-Type: application/json
+
+{}
+
+### DELETE - Excluir livro
+DELETE http://localhost:3000/api/livros/1
+
+### DELETE - Livro inexistente
+DELETE http://localhost:3000/api/livros/9999
+
+### DELETE - ID inválido
+DELETE http://localhost:3000/api/livros/abc
